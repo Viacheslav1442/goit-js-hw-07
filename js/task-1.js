@@ -1,30 +1,21 @@
-const customer = {
-    username: "Mango",
-    balance: 24000,
-    discount: 0.1,
-    orders: ["Burger", "Pizza", "Salad"],
-    // Change code below this line
-    getBalance() {
-        return this.balance;
-    },
-    getDiscount() {
-        return this.discount;
-    },
-    setDiscount(value) {
-        this.discount = value;
-    },
-    getOrders() {
-        return this.orders;
-    },
-    addOrder(cost, order) {
-        this.balance -= cost - cost * this.discount;
-        this.orders.push(order);
-    },
-    // Change code above this line
-};
+// Знаходимо список з категоріями
+const categoriesList = document.querySelector('#categories');
 
-customer.setDiscount(0.15);
-console.log(customer.getDiscount()); // 0.15
-customer.addOrder(5000, "Steak");
-console.log(customer.getBalance()); // 19750
-console.log(customer.getOrders()); // ["Burger", "Pizza", "Salad", "Steak"]
+// Знаходимо всі елементи з класом item (категорії)
+const categoryItems = categoriesList.querySelectorAll('.item');
+
+// Виводимо кількість категорій
+console.log(`Number of categories: ${categoryItems.length}`);
+
+// Перебираємо кожну категорію
+categoryItems.forEach(item => {
+    // Знаходимо заголовок категорії
+    const categoryTitle = item.querySelector('h2').textContent;
+
+    // Знаходимо всі підкатегорії (елементи списку li)
+    const categoryElements = item.querySelectorAll('ul li');
+
+    // Виводимо назву категорії та кількість елементів
+    console.log(`Category: ${categoryTitle}`);
+    console.log(`Elements: ${categoryElements.length}`);
+});
