@@ -25,17 +25,12 @@ const images = [
     },
 ];
 
-// Знаходимо список галереї
-const gallery = document.querySelector('.gallery');
+const heroElem = document.querySelector(".gallery");
 
-// Створюємо розмітку всіх <li> з <img>
-const galleryItemsMarkup = images
-    .map(({ url, alt }) => {
-        return `<li class="gallery-item">
-              <img src="${url}" alt="${alt}" class="gallery-image" />
-            </li>`;
-    })
-    .join('');
-
-// Додаємо всю розмітку за одну операцію
-gallery.insertAdjacentHTML('beforeend', galleryItemsMarkup);
+images.forEach((image) => {
+    const elem = document.createElement("img");
+    elem.setAttribute("src", image.url);
+    elem.setAttribute("alt", image.alt);
+    elem.classList.add("hero-imgs");
+    heroElem.append(elem);
+});

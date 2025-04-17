@@ -1,21 +1,17 @@
-// Знаходимо список з категоріями
-const categoriesList = document.querySelector('#categories');
-
-// Знаходимо всі елементи з класом item (категорії)
-const categoryItems = categoriesList.querySelectorAll('.item');
-
-// Виводимо кількість категорій
-console.log(`Number of categories: ${categoryItems.length}`);
-
-// Перебираємо кожну категорію
-categoryItems.forEach(item => {
-    // Знаходимо заголовок категорії
-    const categoryTitle = item.querySelector('h2').textContent;
-
-    // Знаходимо всі підкатегорії (елементи списку li)
-    const categoryElements = item.querySelectorAll('ul li');
-
-    // Виводимо назву категорії та кількість елементів
-    console.log(`Category: ${categoryTitle}`);
-    console.log(`Elements: ${categoryElements.length}`);
+const num = document.querySelector("#categories");
+const foundLi = document.querySelectorAll(".item");
+const foundLiLength = foundLi.length;
+const resultCategories = "Number of categories: " + foundLiLength;
+console.log(resultCategories);
+foundLi.forEach((li) => {
+    console.log("Category: " + li.firstElementChild.textContent);
+    console.log("Elements: " + li.lastElementChild.children.length);
+    const list = Array.from(li.lastElementChild.children);
+    list.forEach((item) => {
+        item.classList.add("list-style");
+    });
+    const categoryList = document.querySelectorAll("h2");
+    categoryList.forEach((elem) => {
+        elem.classList.add("classList-style");
+    });
 });

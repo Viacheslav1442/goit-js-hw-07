@@ -1,7 +1,12 @@
-const inputEl = document.querySelector('#name-input');
-const outputEl = document.querySelector('#name-output');
-
-inputEl.addEventListener('input', () => {
-    const trimmedValue = inputEl.value.trim();
-    outputEl.textContent = trimmedValue === '' ? 'Anonymous' : trimmedValue;
+const test = document.querySelector("#name-input");
+const outText = document.querySelector("#name-output");
+test.addEventListener("input", () => {
+    const trimmedValue = test.value.trim();
+    if (trimmedValue) {
+        const result = (outText.textContent = trimmedValue);
+        console.log(result);
+    } else {
+        const errorResult = (outText.textContent = "Anonymous");
+        console.log(errorResult);
+    }
 });
