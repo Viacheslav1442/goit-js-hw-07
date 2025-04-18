@@ -25,12 +25,12 @@ const images = [
     },
 ];
 
-const heroElem = document.querySelector(".gallery");
+const gallery = document.querySelector(".gallery");
 
-images.forEach((image) => {
-    const elem = document.createElement("img");
-    elem.setAttribute("src", image.url);
-    elem.setAttribute("alt", image.alt);
-    elem.classList.add("hero-imgs");
-    heroElem.append(elem);
-});
+const markup = images
+    .map(({ url, alt }) => {
+        return `<li><img class="hero-imgs" src="${url}" alt="${alt}"></li>`;
+    })
+    .join("");
+
+gallery.insertAdjacentHTML("beforeend", markup);
